@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Pictograpp.Images">
+    <StackLayout>
+        <Frame BackgroundColor="OrangeRed" Padding="10" CornerRadius="0">
+            <Label Text="Opciones" 
+                   HorizontalTextAlignment="Start" 
+                   TextColor="White" 
+                   FontSize="22"
+                   FontAttributes="Bold"/>
+        </Frame>
+
+        <ScrollView>
+            <StackLayout>
+                <Grid Margin="30,20"
+              RowSpacing="20">
+                    <Button 
+                Grid.Row="0"
+                Grid.Column="0"
+            CornerRadius="15"
+            BackgroundColor="#ffad99"
+            Text="ir al baño" 
+            WidthRequest="200" 
+            HeightRequest="200"
+            HorizontalOptions="Start"
+                        Clicked="NavigateButton_OnClicked">
+                    </Button>
+                    <Button 
+                Grid.Row="0"
+                Grid.Column="1"
+            CornerRadius="15"
+            BackgroundColor="#ffad99"
+            Text="comer" 
+            WidthRequest="200" 
+            HeightRequest="200"
+            HorizontalOptions="Start">
+                    </Button>
+                </Grid>
+
+                <Grid Margin="30,20"
+              RowSpacing="20">
+                    <Button 
+                Grid.Row="0"
+                Grid.Column="0"
+            CornerRadius="15"
+            BackgroundColor="#ffad99"
+            Text="tomar agua" 
+            WidthRequest="200" 
+            HeightRequest="200"
+            HorizontalOptions="Start">
+                    </Button>
+                    <Button 
+                Grid.Row="0"
+                Grid.Column="1"
+            CornerRadius="15"
+            BackgroundColor="#ffad99"
+            Text="jugar" 
+            WidthRequest="200" 
+            HeightRequest="200"
+            HorizontalOptions="Start">
+                    </Button>
+                </Grid>
+
+                <Grid Margin="30,20"
+              RowSpacing="20">
+                    <Button 
+                Grid.Row="0"
+                Grid.Column="0"
+            CornerRadius="15"
+            BackgroundColor="#ffad99"
+            Text="a" 
+            WidthRequest="200" 
+            HeightRequest="200"
+            HorizontalOptions="Start">
+                    </Button>
+                    <Button 
+                Grid.Row="0"
+                Grid.Column="1"
+            CornerRadius="15"
+            BackgroundColor="#ffad99"
+            Text="a" 
+            WidthRequest="200" 
+            HeightRequest="200"
+            HorizontalOptions="Start">
+                    </Button>
+                </Grid>
+
+                <Grid Margin="30,20"
+              RowSpacing="20">
+                    <Button 
+                Grid.Row="0"
+                Grid.Column="0"
+            CornerRadius="15"
+            BackgroundColor="#ffad99"
+            Text="a" 
+            WidthRequest="200" 
+            HeightRequest="200"
+            HorizontalOptions="Start">
+                    </Button>
+                    <Button 
+                Grid.Row="0"
+                Grid.Column="1"
+            CornerRadius="15"
+            BackgroundColor="#ffad99"
+            Text="a" 
+            WidthRequest="200" 
+            HeightRequest="200"
+            HorizontalOptions="Start">
+                    </Button>
+                </Grid>
+            </StackLayout>
+        </ScrollView>
+
+    </StackLayout>
+</ContentPage>
