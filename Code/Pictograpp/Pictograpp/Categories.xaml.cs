@@ -16,10 +16,17 @@ namespace Pictograpp
         public Categories()
         {
             InitializeComponent();
+            MostrarDatos();
         }
         private async void NavigateButton_OnClicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new Images());
+        }
+
+        private void LimpiarCat()
+        {
+            TxtCodCat.Text = "";
+            TxTNomCat.Text = "";
         }
 
         public bool ValidarDatos()
@@ -36,6 +43,16 @@ namespace Pictograpp
             return respuesta;
         }
 
+        public async void MostrarDatos()
+        {
+            //mostrar la base de datos despues de registrar la categoria
+            var CatList = await App.SQLiteDB.GetCategoriasAsync();
+            if (CatList != null)
+            {
+                LstCat.ItemsSource = CatList;
+            }
+        }
+
         /// <summary>
         /// Registar categorias
         /// </summary>
@@ -45,18 +62,14 @@ namespace Pictograpp
         {
             if (ValidarDatos())
             {
-                Categorias cat = new Categorias
+                MCategorias cat = new MCategorias
                 {
                     NomCat = TxTNomCat.Text
                 };
                 await App.SQLiteDB.SaveCatAsync(cat);
-                TxTNomCat.Text = "";
+                LimpiarCat();
                 await DisplayAlert("Registro", "Se guardo de manera exitosa la categoria", "Ok");
-                var CatList= await App.SQLiteDB.GetCategoriasAsync();
-                if (CatList != null)
-                {
-                    LstCat.ItemsSource = CatList;
-                }
+                MostrarDatos();
             }
             else
             {
@@ -64,5 +77,57 @@ namespace Pictograpp
             }
         }
 
+        private async void BtnActualizarCat_Clicked(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(TxtCodCat.Text))
+            {
+                MCategorias categorias = new MCategorias()
+                {
+                    CodCat = Convert.ToInt32(TxtCodCat.Text),
+                    NomCat = TxTNomCat.Text
+                };
+                await App.SQLiteDB.SaveCatAsync(categorias);
+                LimpiarCat();
+                await DisplayAlert("Modificación", "Se edito de manera exitosa la categoria", "Ok");
+                TxtCodCat.IsVisible = false;
+                BtnActualizarCat.IsVisible = false;
+                BtnRegistrarCat.IsVisible = true;
+                MostrarDatos();
+            }
+        }
+
+        private async void LstCat_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            var obj = (MCategorias)e.SelectedItem;
+            BtnRegistrarCat.IsVisible = false;
+            TxTNomCat.IsVisible = true;
+            BtnActualizarCat.IsVisible = true;
+            BtnEliminarCat.IsVisible = true;
+            if (!string.IsNullOrEmpty(obj.CodCat.ToString()))
+            {
+                var cat = await App.SQLiteDB.GetCategoriasByCodAsync(obj.CodCat);
+                if (cat != null)
+                {
+                    TxtCodCat.Text = cat.CodCat.ToString();
+                    TxTNomCat.Text = cat.NomCat;
+                }
+            }
+        }
+
+        private async void BtnEliminarCat_Clicked(object sender, EventArgs e)
+        {
+            var cate = await App.SQLiteDB.GetCategoriasByCodAsync(Convert.ToInt32(TxtCodCat.Text));
+            if(cate != null)
+            {
+                await App.SQLiteDB.DeleteCatAsync(cate);
+                await DisplayAlert("Eliminado", "La categoria a sido eliminada", "Ok");
+                LimpiarCat();
+                MostrarDatos();
+                TxtCodCat.IsVisible = false;
+                BtnActualizarCat.IsVisible = false;
+                BtnEliminarCat.IsVisible = false;
+                BtnRegistrarCat.IsVisible = true;
+            }
+        }
     }
 }

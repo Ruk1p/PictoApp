@@ -13,32 +13,37 @@ namespace Pictograpp.Data
         public SQLiteHelper(string dbPath)
         {
             db = new SQLiteAsyncConnection(dbPath);
-            db.CreateTableAsync<Categorias>().Wait();
+            db.CreateTableAsync<MCategorias>().Wait();
         }
         /// <summary>
         /// Guardar categorias en la base de datos
         /// </summary>
         /// <param name="Cate"></param>
         /// <returns></returns>
-        public Task <int> SaveCatAsync(Categorias Cate)
+        public Task <int> SaveCatAsync(MCategorias Cate)
         {
-            if (Cate.CodCat==0)
+            if (Cate.CodCat !=0)
             {
-                return db.InsertAsync(Cate);
+                return db.UpdateAsync(Cate);
             }
             else
             {
-                return null;
+                return db.InsertAsync(Cate);
             }
+        }
+
+        public Task<int> DeleteCatAsync(MCategorias Cate)
+        {
+            return db.DeleteAsync(Cate);
         }
 
         /// <summary>
         /// Mostrar todas los categorias en la base de datos
         /// </summary>
         /// <returns>Todas las categorias</returns>
-        public Task<List<Categorias>> GetCategoriasAsync()
+        public Task<List<MCategorias>> GetCategoriasAsync()
         {
-            return db.Table<Categorias>().ToListAsync();
+            return db.Table<MCategorias>().ToListAsync();
         }
 
         /// <summary>
@@ -46,9 +51,9 @@ namespace Pictograpp.Data
         /// </summary>
         /// <param name="codCat"></param>
         /// <returns></returns>
-        public Task<Categorias> GetCategoriasByCodAsync(int codCat)
+        public Task<MCategorias> GetCategoriasByCodAsync(int codCat)
         {
-            return db.Table<Categorias>().Where(a => a.CodCat == codCat).FirstOrDefaultAsync();
+            return db.Table<MCategorias>().Where(a => a.CodCat == codCat).FirstOrDefaultAsync();
         }
 
     }
