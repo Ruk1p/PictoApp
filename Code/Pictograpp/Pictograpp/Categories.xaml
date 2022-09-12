@@ -13,11 +13,35 @@
 
         <ScrollView>
             <StackLayout>
+                <!--De aca-->
                 <Label Text="Registrar Categorias"
                        HorizontalOptions="Center"
                        VerticalOptions="CenterAndExpand"/>
                 <Entry x:Name="TxTNomCat" Placeholder="Nombre de la Categoria"/>
-                <Button x:Name="BtnRegistrar" Text="Registar" Clicked="BtnRegistrar_Clicked"/>
+                <Button x:Name="BtnRegistrarCat" Text="Registar" Clicked="BtnRegistrarCat_Clicked"/>
+                <!--hasta aca es una seccion en lo de la ventana del costado-->
+                
+                <!--aca-->
+                <ListView x:Name="LstCat">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Text="{Binding CodCat}" Grid.Row="0" Grid.Column="0" TextColor="Aqua"/>
+                                    <Label Text="{Binding NomCat}" Grid.Row="0" Grid.Column="1" TextColor="Black"/>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
                 <Grid Margin="30,20"
               RowSpacing="20">
                     <Button 

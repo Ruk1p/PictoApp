@@ -15,7 +15,11 @@ namespace Pictograpp.Data
             db = new SQLiteAsyncConnection(dbPath);
             db.CreateTableAsync<Categorias>().Wait();
         }
-
+        /// <summary>
+        /// Guardar categorias en la base de datos
+        /// </summary>
+        /// <param name="Cate"></param>
+        /// <returns></returns>
         public Task <int> SaveCatAsync(Categorias Cate)
         {
             if (Cate.CodCat==0)
@@ -28,6 +32,24 @@ namespace Pictograpp.Data
             }
         }
 
-        public 
+        /// <summary>
+        /// Mostrar todas los categorias en la base de datos
+        /// </summary>
+        /// <returns>Todas las categorias</returns>
+        public Task<List<Categorias>> GetCategoriasAsync()
+        {
+            return db.Table<Categorias>().ToListAsync();
+        }
+
+        /// <summary>
+        /// Muestra las categorias por el cod que le demos
+        /// </summary>
+        /// <param name="codCat"></param>
+        /// <returns></returns>
+        public Task<Categorias> GetCategoriasByCodAsync(int codCat)
+        {
+            return db.Table<Categorias>().Where(a => a.CodCat == codCat).FirstOrDefaultAsync();
+        }
+
     }
 }

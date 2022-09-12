@@ -22,24 +22,6 @@ namespace Pictograpp
             await Navigation.PushAsync(new Images());
         }
 
-        private async void BtnRegistrar_Clicked(object sender, EventArgs e)
-        {
-            if (ValidarDatos())
-            {
-                Categorias cat = new Categorias
-                {
-                    NomCat = TxTNomCat.Text
-                };
-                await App.SQLiteDB.SaveCatAsync(cat);
-                TxTNomCat.Text = "";
-                await DisplayAlert("Registro", "Se guardo de manera exitosa la categoria", "Ok");
-            }
-            else
-            {
-                await DisplayAlert("Error", "Ingrese los datos", "Ok");
-            }
-        }
-
         public bool ValidarDatos()
         {
             bool respuesta;
@@ -53,5 +35,34 @@ namespace Pictograpp
             }
             return respuesta;
         }
+
+        /// <summary>
+        /// Registar categorias
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private async void BtnRegistrarCat_Clicked(object sender, EventArgs e)
+        {
+            if (ValidarDatos())
+            {
+                Categorias cat = new Categorias
+                {
+                    NomCat = TxTNomCat.Text
+                };
+                await App.SQLiteDB.SaveCatAsync(cat);
+                TxTNomCat.Text = "";
+                await DisplayAlert("Registro", "Se guardo de manera exitosa la categoria", "Ok");
+                var CatList= await App.SQLiteDB.GetCategoriasAsync();
+                if (CatList != null)
+                {
+                    LstCat.ItemsSource = CatList;
+                }
+            }
+            else
+            {
+                await DisplayAlert("Error", "Ingrese los datos", "Ok");
+            }
+        }
+
     }
 }
