@@ -11,17 +11,18 @@ public class AccessibilityManagerCompat_TouchExplorationStateChangeListenerImple
 	public static final String __md_methods;
 	static {
 		__md_methods = 
-			"n_onTouchExplorationStateChanged:(Z)V:GetOnTouchExplorationStateChanged_ZHandler:AndroidX.Core.View.Accessibiity.AccessibilityManagerCompat/ITouchExplorationStateChangeListenerInvoker, Xamarin.AndroidX.Core\n" +
+			"n_onTouchExplorationStateChanged:(Z)V:GetOnTouchExplorationStateChanged_ZHandler:AndroidX.Core.View.Accessibility.AccessibilityManagerCompat/ITouchExplorationStateChangeListenerInvoker, Xamarin.AndroidX.Core\n" +
 			"";
-		mono.android.Runtime.register ("AndroidX.Core.View.Accessibiity.AccessibilityManagerCompat+ITouchExplorationStateChangeListenerImplementor, Xamarin.AndroidX.Core", AccessibilityManagerCompat_TouchExplorationStateChangeListenerImplementor.class, __md_methods);
+		mono.android.Runtime.register ("AndroidX.Core.View.Accessibility.AccessibilityManagerCompat+ITouchExplorationStateChangeListenerImplementor, Xamarin.AndroidX.Core", AccessibilityManagerCompat_TouchExplorationStateChangeListenerImplementor.class, __md_methods);
 	}
 
 
 	public AccessibilityManagerCompat_TouchExplorationStateChangeListenerImplementor ()
 	{
 		super ();
-		if (getClass () == AccessibilityManagerCompat_TouchExplorationStateChangeListenerImplementor.class)
-			mono.android.TypeManager.Activate ("AndroidX.Core.View.Accessibiity.AccessibilityManagerCompat+ITouchExplorationStateChangeListenerImplementor, Xamarin.AndroidX.Core", "", this, new java.lang.Object[] {  });
+		if (getClass () == AccessibilityManagerCompat_TouchExplorationStateChangeListenerImplementor.class) {
+			mono.android.TypeManager.Activate ("AndroidX.Core.View.Accessibility.AccessibilityManagerCompat+ITouchExplorationStateChangeListenerImplementor, Xamarin.AndroidX.Core", "", this, new java.lang.Object[] {  });
+		}
 	}
 
 

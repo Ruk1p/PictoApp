@@ -13,6 +13,11 @@
 
         <ScrollView>
             <StackLayout>
+                <Label Text="Registrar Categorias"
+                       HorizontalOptions="Center"
+                       VerticalOptions="CenterAndExpand"/>
+                <Entry x:Name="TxTNomCat" Placeholder="Nombre de la Categoria"/>
+                <Button x:Name="BtnRegistrar" Text="Registar" Clicked="BtnRegistrar_Clicked"/>
                 <Grid Margin="30,20"
               RowSpacing="20">
                     <Button 
