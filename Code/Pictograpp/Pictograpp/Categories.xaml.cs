@@ -167,7 +167,7 @@ namespace Pictograpp
             var PictoList = await App.SQLiteDB.GetPictoAsync();
             if (PictoList != null)
             {
-                LstCat.ItemsSource = PictoList;
+                LstPicto.ItemsSource = PictoList;
             }
         }
 
@@ -219,7 +219,7 @@ namespace Pictograpp
                 MPictogramas pictograma = new MPictogramas()
                 {
                     CodPicto = Convert.ToInt32(TxtCodPicto.Text),
-                    NomPicto = TxTNomCat.Text,
+                    NomPicto = TxTNomPicto.Text,
                     TextoPicto = TxTPictoTexto.Text,
                     CodCat = Convert.ToInt32(TxTCodCatP.Text),
                 };
