@@ -5,6 +5,7 @@ using System.Text;
 
 namespace Pictograpp.Models
 {
+    [Table("Categorias")]
     public class MCategorias
     {
         [PrimaryKey,NotNull,AutoIncrement]
