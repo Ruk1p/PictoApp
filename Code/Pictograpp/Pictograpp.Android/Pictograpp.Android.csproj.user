@@ -5,5 +5,6 @@
     <ActiveDebugProfile>Tablet H-DPI 13.5in - API 32 %28Android 12.1 - API 32%29</ActiveDebugProfile>
     <DefaultDevice>tablet_h-dpi_13_5in_-_api_32</DefaultDevice>
     <SelectedPlatformGroup>Emulator</SelectedPlatformGroup>
+    <AndroidDesignerPreferredTheme>MainTheme</AndroidDesignerPreferredTheme>
   </PropertyGroup>
 </Project>

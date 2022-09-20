@@ -13,6 +13,10 @@
 
         <ScrollView>
             <StackLayout>
+                <!--esto es una prueba de elegir pictograma-->
+                <Button x:Name="BtnPickImage" Text="Elegir Imagen" Clicked="BtnPickImage_Clicked"/>
+                <Image x:Name="ResultImage"/>
+
                 <!--De aca-->
                 <Label Text="Registrar Categorias"
                        HorizontalOptions="Center"

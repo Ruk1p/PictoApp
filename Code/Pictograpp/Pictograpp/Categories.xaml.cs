@@ -1,10 +1,11 @@
 ﻿using Pictograpp.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -26,7 +27,7 @@ namespace Pictograpp
         }
 
         #region Categorias
-        private void LimpiarCat()
+    private void LimpiarCat()
         {
             TxtCodCat.Text = "";
             TxTNomCat.Text = "";
@@ -122,16 +123,30 @@ namespace Pictograpp
             var cate = await App.SQLiteDB.GetCatByCodAsync(Convert.ToInt32(TxtCodCat.Text));
             if(cate != null)
             {
-                await App.SQLiteDB.DeleteCatAsync(cate);
-                await DisplayAlert("Eliminado", "La categoria a sido eliminada", "Ok");
-                TxtCodCat.IsVisible = false;
-                BtnActualizarCat.IsVisible = false;
-                BtnEliminarCat.IsVisible = false;
-                BtnRegistrarCat.IsVisible = true;
-                LimpiarCat();
-                MostrarDatosCat();
+                if (CanDelete(cate))
+                {
+                    await App.SQLiteDB.DeleteCatAsync(cate);
+                    await DisplayAlert("Eliminado", "La categoria a sido eliminada", "Ok");
+                    TxtCodCat.IsVisible = false;
+                    BtnActualizarCat.IsVisible = false;
+                    BtnEliminarCat.IsVisible = false;
+                    BtnRegistrarCat.IsVisible = true;
+                    LimpiarCat();
+                    MostrarDatosCat();
+                }
+                
             }
         }
+        private bool CanDelete(MCategorias cate)
+        {
+            //tendria que hacer una select en pictograma para ver si 
+            //existe alguno con esa categoria y en ese caso no se puede eliminar
+            //to do: cargar pictograma; fijarse que ande el text to speech de la manera que precisamos
+            //en caso de que no, buscar como cargar audio desde el microfono
+            //hacer grids segun la cantidad de categorias
+            return true;
+        }
+
         #endregion
 
         #region Pictogramas
@@ -238,17 +253,37 @@ namespace Pictograpp
             var pict = await App.SQLiteDB.GetPictoByCodAsync(Convert.ToInt32(TxtCodPicto.Text));
             if (pict != null)
             {
-                await App.SQLiteDB.DeletePictoAsync(pict);
-                await DisplayAlert("Eliminado", "El pictograma a sido eliminada", "Ok");
-                TxtCodPicto.IsVisible = false;
-                BtnActualizarPicto.IsVisible = false;
-                BtnEliminarPicto.IsVisible = false;
-                BtnRegistrarPicto.IsVisible = true;
-                LimpiarPicto();
-                MostrarDatosPicto();
+                if (CanDeleteP(pict))
+                {
+                    await App.SQLiteDB.DeletePictoAsync(pict);
+                    await DisplayAlert("Eliminado", "El pictograma a sido eliminada", "Ok");
+                    TxtCodPicto.IsVisible = false;
+                    BtnActualizarPicto.IsVisible = false;
+                    BtnEliminarPicto.IsVisible = false;
+                    BtnRegistrarPicto.IsVisible = true;
+                    LimpiarPicto();
+                    MostrarDatosPicto();
+                }
             }
         }
 
+        //control de si se autoriza a eliminar el objeto
+        private bool CanDeleteP(MPictogramas pict)
+        {
+            return true;
+        }
         #endregion
+
+        private async void BtnPickImage_Clicked(object sender, EventArgs e)
+        {
+            var ima = await MediaPicker.PickPhotoAsync(new MediaPickerOptions
+            {
+                Title="Elegi un pictograma o imagen"
+            });
+            var stream = await ima.OpenReadAsync();
+
+            ResultImage.Source = ImageSource.FromStream(() => stream);
+
+        }
     }
 }

@@ -17,7 +17,7 @@ namespace Pictograpp.Models
         [NotNull, MaxLength(550)]
         public string TextoPicto { get; set; }
 
-        [Indexed, NotNull]
+        [NotNull]
         public int CodCat { get; set; } 
 
     }
