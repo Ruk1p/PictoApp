@@ -15,99 +15,50 @@
             <StackLayout>
                 <Grid Margin="30,20"
               RowSpacing="20">
-                    <Button 
-                Grid.Row="0"
+                    <ImageButton>
+                        Grid.Row="0"
                 Grid.Column="0"
-            CornerRadius="15"
-            BackgroundColor="#ffad99"
-            Text="ir al baño" 
-            WidthRequest="200" 
-            HeightRequest="200"
-            HorizontalOptions="Start"
-                        Clicked="NavigateButton_OnClicked">
-                    </Button>
-                    <Button 
-                Grid.Row="0"
+                        Source="Mama.png"
+                        CornerRadius="15"
+                        WidthRequest="200" 
+                        HeightRequest="200"
+                        BackgroundColor="#ffad99"
+                        HorizontalOptions="Start"
+                    </ImageButton>
+                    <ImageButton>
+                        Grid.Row="0"
                 Grid.Column="1"
-            CornerRadius="15"
-            BackgroundColor="#ffad99"
-            Text="comer" 
-            WidthRequest="200" 
-            HeightRequest="200"
-            HorizontalOptions="Start">
-                    </Button>
+                        Source="Papa.png"
+                        CornerRadius="15"
+                        WidthRequest="200" 
+                        HeightRequest="200"
+                        BackgroundColor="#ffad99"
+                        HorizontalOptions="Start"
+                    </ImageButton>
                 </Grid>
 
                 <Grid Margin="30,20"
               RowSpacing="20">
-                    <Button 
-                Grid.Row="0"
+                    <ImageButton>
+                        Grid.Row="0"
                 Grid.Column="0"
-            CornerRadius="15"
-            BackgroundColor="#ffad99"
-            Text="tomar agua" 
-            WidthRequest="200" 
-            HeightRequest="200"
-            HorizontalOptions="Start">
-                    </Button>
-                    <Button 
-                Grid.Row="0"
+                        Source="Hermanos.png"
+                        CornerRadius="15"
+                        WidthRequest="200" 
+                        HeightRequest="200"
+                        BackgroundColor="#ffad99"
+                        HorizontalOptions="Start"
+                    </ImageButton>
+                    <ImageButton>
+                        Grid.Row="0"
                 Grid.Column="1"
-            CornerRadius="15"
-            BackgroundColor="#ffad99"
-            Text="jugar" 
-            WidthRequest="200" 
-            HeightRequest="200"
-            HorizontalOptions="Start">
-                    </Button>
-                </Grid>
-
-                <Grid Margin="30,20"
-              RowSpacing="20">
-                    <Button 
-                Grid.Row="0"
-                Grid.Column="0"
-            CornerRadius="15"
-            BackgroundColor="#ffad99"
-            Text="a" 
-            WidthRequest="200" 
-            HeightRequest="200"
-            HorizontalOptions="Start">
-                    </Button>
-                    <Button 
-                Grid.Row="0"
-                Grid.Column="1"
-            CornerRadius="15"
-            BackgroundColor="#ffad99"
-            Text="a" 
-            WidthRequest="200" 
-            HeightRequest="200"
-            HorizontalOptions="Start">
-                    </Button>
-                </Grid>
-
-                <Grid Margin="30,20"
-              RowSpacing="20">
-                    <Button 
-                Grid.Row="0"
-                Grid.Column="0"
-            CornerRadius="15"
-            BackgroundColor="#ffad99"
-            Text="a" 
-            WidthRequest="200" 
-            HeightRequest="200"
-            HorizontalOptions="Start">
-                    </Button>
-                    <Button 
-                Grid.Row="0"
-                Grid.Column="1"
-            CornerRadius="15"
-            BackgroundColor="#ffad99"
-            Text="a" 
-            WidthRequest="200" 
-            HeightRequest="200"
-            HorizontalOptions="Start">
-                    </Button>
+                        Source="Abuelos.png"
+                        CornerRadius="15"
+                        WidthRequest="200" 
+                        HeightRequest="200"
+                        BackgroundColor="#ffad99"
+                        HorizontalOptions="Start"
+                    </ImageButton>
                 </Grid>
             </StackLayout>
         </ScrollView>
