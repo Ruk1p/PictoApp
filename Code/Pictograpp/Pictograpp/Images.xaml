@@ -4,7 +4,7 @@
              x:Class="Pictograpp.Images">
     <StackLayout>
         <Frame BackgroundColor="OrangeRed" Padding="10" CornerRadius="0">
-            <Label Text="Opciones" 
+            <Label Text="Prototipo" 
                    HorizontalTextAlignment="Start" 
                    TextColor="White" 
                    FontSize="22"
@@ -15,7 +15,7 @@
             <StackLayout>
                 <Grid Margin="30,20"
               RowSpacing="20">
-                    <ImageButton>
+                    <ImageButton
                         Grid.Row="0"
                 Grid.Column="0"
                         Source="Mama.png"
@@ -24,8 +24,9 @@
                         HeightRequest="200"
                         BackgroundColor="#ffad99"
                         HorizontalOptions="Start"
+                        Clicked="Mama_Clicked">
                     </ImageButton>
-                    <ImageButton>
+                    <ImageButton
                         Grid.Row="0"
                 Grid.Column="1"
                         Source="Papa.png"
@@ -34,31 +35,62 @@
                         HeightRequest="200"
                         BackgroundColor="#ffad99"
                         HorizontalOptions="Start"
+                        Clicked="Papa_Clicked">
                     </ImageButton>
                 </Grid>
 
                 <Grid Margin="30,20"
               RowSpacing="20">
-                    <ImageButton>
+                    <ImageButton
                         Grid.Row="0"
                 Grid.Column="0"
-                        Source="Hermanos.png"
+                        Source="Dormir.png"
                         CornerRadius="15"
                         WidthRequest="200" 
                         HeightRequest="200"
                         BackgroundColor="#ffad99"
                         HorizontalOptions="Start"
+                        Clicked="Dormir_Clicked">
                     </ImageButton>
-                    <ImageButton>
+                    <ImageButton
                         Grid.Row="0"
                 Grid.Column="1"
-                        Source="Abuelos.png"
+                        Source="BeberAgua.png"
                         CornerRadius="15"
                         WidthRequest="200" 
                         HeightRequest="200"
                         BackgroundColor="#ffad99"
                         HorizontalOptions="Start"
+                        Clicked="TomarAgua_Clicked"
+                        >
                     </ImageButton>
+                </Grid>
+                <Grid Margin="30,20"
+              RowSpacing="20">
+                    <ImageButton
+                        Grid.Row="0"
+                Grid.Column="0"
+                        Source="TengoCalor.png"
+                        CornerRadius="15"
+                        WidthRequest="200" 
+                        HeightRequest="200"
+                        BackgroundColor="#ffad99"
+                        HorizontalOptions="Start"
+                        Clicked="TengoCalor_Clicked">
+                    </ImageButton>
+                    <ImageButton
+                        Grid.Row="0"
+                Grid.Column="1"
+                        Source="Pintar.png"
+                        CornerRadius="15"
+                        WidthRequest="200" 
+                        HeightRequest="200"
+                        BackgroundColor="#ffad99"
+                        HorizontalOptions="Start"
+                        Clicked="Pintar_Clicked"
+                        >
+                    </ImageButton>
+                 
                 </Grid>
             </StackLayout>
         </ScrollView>
