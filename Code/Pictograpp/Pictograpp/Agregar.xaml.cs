@@ -12,23 +12,13 @@ using Xamarin.Forms.Xaml;
 namespace Pictograpp
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Categories : ContentPage
+    public partial class Agregar : ContentPage
     {
-        public Categories()
+        public Agregar()
         {
             InitializeComponent();
-            //Esto hay que cambiarlo de lugar cuando damasco haga los botones
             MostrarDatosCat();
             MostrarDatosPicto();
-        }
-        private async void NavigateButton_OnClicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new Images());
-        }
-
-        private async void AgregarClicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new Agregar());
         }
 
         #region Categorias

@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Code",
+    "\\Code\\Pictograpp",
+    "\\Code\\Pictograpp\\Pictograpp"
   ],
-  "SelectedNode": "\\Pictograpp.sln",
   "PreviewInSolutionExplorer": false
 }
