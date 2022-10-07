@@ -18,6 +18,9 @@ namespace Pictograpp.Models
         public string TextoPicto { get; set; }
 
         [NotNull]
+        public string Picto { get; set; }
+
+        [NotNull]
         public int CodCat { get; set; } 
 
     }

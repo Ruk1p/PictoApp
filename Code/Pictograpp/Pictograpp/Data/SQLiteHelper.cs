@@ -23,9 +23,9 @@ namespace Pictograpp.Data
         /// <param name="Cate"></param>
         /// <returns></returns>
         #region Categorias
-        public Task <int> SaveCatAsync(MCategorias Cate)
+        public Task<int> SaveCatAsync(MCategorias Cate)
         {
-            if (Cate.CodCat !=0)
+            if (Cate.CodCat != 0)
             {
                 return db.UpdateAsync(Cate);
             }

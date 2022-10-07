@@ -1,4 +1,5 @@
 ﻿using Pictograpp.Data;
+using SQLite;
 using System;
 using System.IO;
 using Xamarin.Forms;
@@ -27,6 +28,7 @@ namespace Pictograpp
                 return db;
             }
         }
+
 
         protected override void OnStart()
         {
