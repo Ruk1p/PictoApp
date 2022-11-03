@@ -17,10 +17,39 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Categories.xaml">
+    <Compile Update="App.xaml.cs">
+      <SubType>Code</SubType>
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
+    <Compile Update="Categories.xaml.cs">
+      <SubType>Code</SubType>
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
+    <Compile Update="Images.xaml.cs">
+      <SubType>Code</SubType>
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
+    <Compile Update="MainPage.xaml.cs">
+      <SubType>Code</SubType>
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="App.xaml">
+      <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Categories.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Update="Images.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Update="MainPage.xaml">
+      <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
