@@ -1,11 +1,9 @@
 {
   "version": 2,
-  "dgSpecHash": "HFJB3QkDaj9zWuEQLTj66AljXoSKq7Yir1CHxG7Oz9UiqFvwn1+K6YBUn8FxLwX6USfV8u2As3hOJ7pNJmXJhQ==",
+  "dgSpecHash": "kz8DNJNoQQd6DapzfRotGUeb7i6cOn71VD9RzSzfzORMq69rWlqwzl6wara25+OwM6HYi0sM9kA6US2q28K/Yw==",
   "success": true,
-  "projectFilePath": "D:\\Documentos\\Github\\PictoApp\\Code\\Pictograpp\\Pictograpp\\Pictograpp.csproj",
+  "projectFilePath": "D:\\Documentos\\A-Proyecto\\PictoApp\\Code\\Pictograpp\\Pictograpp\\Pictograpp.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\mrcra\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
-    "C:\\Users\\mrcra\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
     "C:\\Users\\mrcra\\.nuget\\packages\\sqlite-net-pcl\\1.8.116\\sqlite-net-pcl.1.8.116.nupkg.sha512",
     "C:\\Users\\mrcra\\.nuget\\packages\\sqlitepclraw.bundle_green\\2.0.4\\sqlitepclraw.bundle_green.2.0.4.nupkg.sha512",
     "C:\\Users\\mrcra\\.nuget\\packages\\sqlitepclraw.core\\2.0.4\\sqlitepclraw.core.2.0.4.nupkg.sha512",

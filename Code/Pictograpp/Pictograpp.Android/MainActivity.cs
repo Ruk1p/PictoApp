@@ -9,6 +9,7 @@ using Xamarin.Forms.Platform.Android;
 using System.IO;
 using static Pictograpp.Categories;
 using Android.Content;
+using Xamarin.Essentials;
 
 namespace Pictograpp.Droid
 {
@@ -22,8 +23,11 @@ namespace Pictograpp.Droid
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             LoadApplication(new App());
+            
+
 
         }
+
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {
             Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
