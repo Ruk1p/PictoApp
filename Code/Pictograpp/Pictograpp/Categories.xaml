@@ -30,7 +30,7 @@
                 <Entry x:Name="TxTPictoTexto" Placeholder="Texto del pictograma (lo que dice)"/>
                 <Entry x:Name="TxTCodCatP" Placeholder="Codigo de la categoria a la que pertenece el pictograma"/>
                 <Button x:Name="BtnRegistrarPicto" Text="Registrar" Clicked="BtnRegistrarPicto_Clicked"/>
-                <Button x:Name="BtnElegirPicto" Text="Elegir Imagen" Clicked="BtnPickImage_Clicked" IsVisible="False"/>
+                <Button x:Name="BtnPickImages" Text="Elegir Imagen" Clicked="BtnPickImage_Clicked" IsVisible="False"/>
                 <Button x:Name="BtnActualizarPicto" Text="Actualizar" Clicked="BtnActualizarPicto_Clicked" IsVisible="False"/>
                 <Button x:Name="BtnEliminarPicto" Text="Eliminar" Clicked="BtnEliminarPicto_Clicked" IsVisible="False"/>
                 <!--Hasta aca va la ABM de pictogramas-->
@@ -102,17 +102,17 @@
                 
                 <Grid Margin="30,20"
               RowSpacing="20">
-                    <Button 
+                    <ImageButton 
+                        Source="{Binding Picto}" 
                 Grid.Row="0"
                 Grid.Column="0"
             CornerRadius="15"
             BackgroundColor="#ffad99"
-            Text="acciones" 
             WidthRequest="200" 
             HeightRequest="200"
             HorizontalOptions="Start"
                         Clicked="NavigateButton_OnClicked">
-                    </Button>
+                    </ImageButton>
                     <Button 
                 Grid.Row="0"
                 Grid.Column="1"

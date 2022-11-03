@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
+using Xamarin.Forms.PlatformConfiguration;
 using Xamarin.Forms.Xaml;
 
 namespace Pictograpp
@@ -278,6 +279,11 @@ namespace Pictograpp
         }
         #endregion
 
+        public interface IAccessFile
+        {
+            void CreateFile(string FileName);
+        }
+
         private async void BtnPickImage_Clicked(object sender, EventArgs e)
         {
             await PickerPhotoAsync();
@@ -299,7 +305,7 @@ namespace Pictograpp
 
         string PhotoPath;
         string imageBase64;
-        async Task PickerPhotoAsync()
+        async Task<string> PickerPhotoAsync()
         {
             try
             {
@@ -319,6 +325,7 @@ namespace Pictograpp
             {
                 Console.WriteLine($"CapturePhotoAsync THREW: {ex.Message}");
             }
+            return PhotoPath;
         }
 
         async Task LoadPhotoAsync(FileResult photo)
@@ -340,7 +347,7 @@ namespace Pictograpp
             //PhotoPath = newFile;
 
             var result = GetImageStreamAsBytes(stream);
-            string imageBase64 = Convert.ToBase64String(result);
+            imageBase64 = Convert.ToBase64String(result);
             PhotoPath = imageBase64;
             //PhotoPath = result;
             //string imageBase64 = Convert.ToBase64String(result);
@@ -372,17 +379,16 @@ namespace Pictograpp
 
         private void BtnBackupBaseDeDatos_Clicked(object sender, EventArgs e)
         {
+                string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "PictoApp.db3");
+                //var bytes = File.ReadAllBytes(path);
+                //var fileCopyName = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "PictoAppBackup.db";
+                File.Copy(path, "PictoAppBackup.db", true);
+                //File.Create(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData).ToString() + "PictoAppBackup.db");
 
-                string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "TodoSQLite.db3");
-                var bytes = File.ReadAllBytes(path);
-                var fileCopyName = string.Format("/sdcard/Database_{0:dd-MM-yyyy_HH-mm-ss-tt}.db", DateTime.Now);
-                File.WriteAllBytes(fileCopyName, bytes);
-            
         }
 
         private void BtnElegirPicto_Clicked(object sender, EventArgs e)
         {
-            
             byte[] bytes = System.Convert.FromBase64String(imageBase64);
             ResultPicto.Source = ImageSource.FromStream(() => new MemoryStream(bytes));
         }
