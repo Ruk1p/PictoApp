@@ -13,9 +13,56 @@
 
         <ScrollView>
             <StackLayout>
+                <Button x:Name="BtnElegirPicto" Text="Elegir Picto" Clicked="BtnElegirPicto_Clicked" IsVisible="False"/>
+                <Image x:Name="ResultPicto" IsVisible="False"/>
+                
+                <Button x:Name="BtnBackupBaseDeDatos" Text="Hacer backup de la base de datos" Clicked="BtnBackupBaseDeDatos_Clicked"/>
                 <!--esto es una prueba de elegir pictograma-->
-                <Button x:Name="BtnPickImage" Text="Elegir Imagen" Clicked="BtnPickImage_Clicked"/>
-                <Image x:Name="ResultImage"/>
+                <Button x:Name="BtnPickImage" Text="Elegir Imagen" Clicked="BtnPickImage_Clicked" IsVisible="False"/>
+                <Image x:Name="ResultImage" IsVisible="False"/>
+
+                <!--De aca -->
+                <Label Text="Registrar Pictogramas"
+                       HorizontalOptions="Center"
+                       VerticalOptions="CenterAndExpand"/>
+                <Entry x:Name="TxtCodPicto" IsVisible="False"/>
+                <Entry x:Name="TxTNomPicto" Placeholder="Nombre del Pictograma"/>
+                <Entry x:Name="TxTPictoTexto" Placeholder="Texto del pictograma (lo que dice)"/>
+                <Entry x:Name="TxTCodCatP" Placeholder="Codigo de la categoria a la que pertenece el pictograma"/>
+                <Button x:Name="BtnRegistrarPicto" Text="Registrar" Clicked="BtnRegistrarPicto_Clicked"/>
+                <Button x:Name="BtnPickImages" Text="Elegir Imagen" Clicked="BtnPickImage_Clicked" IsVisible="False"/>
+                <Button x:Name="BtnActualizarPicto" Text="Actualizar" Clicked="BtnActualizarPicto_Clicked" IsVisible="False"/>
+                <Button x:Name="BtnEliminarPicto" Text="Eliminar" Clicked="BtnEliminarPicto_Clicked" IsVisible="False"/>
+                <!--Hasta aca va la ABM de pictogramas-->
+
+                <!--De aca-->
+                <ListView x:Name="LstPicto" ItemSelected="LstPicto_ItemSelected">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Text="{Binding CodPicto}" Grid.Row="0" Grid.Column="0" TextColor="DarkBlue"/>
+                                    <Label Text="{Binding NomPicto}" Grid.Row="0" Grid.Column="1" TextColor="Black"/>
+                                    <Label Text="{Binding TextoPicto}" Grid.Row="0" Grid.Column="2" TextColor="Black"/>
+                                    <Label Text="{Binding CodCat}" Grid.Row="0" Grid.Column="3" TextColor="DarkBlue"/>
+                                    <Label Text="{Binding Picto}" Grid.Row="0" Grid.Column="4" TextColor="DarkBlue"/>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <!--Hasta aca va el listado de las imagenes-->
+
 
                 <!--De aca-->
                 <Label Text="Registrar Categorias"
@@ -51,59 +98,21 @@
                 </ListView>
                 <!--hasta aca es la lista de las categorias-->
                 
-                <!--De aca -->
-                <Label Text="Registrar Pictogramas"
-                       HorizontalOptions="Center"
-                       VerticalOptions="CenterAndExpand"/>
-                <Entry x:Name="TxtCodPicto" IsVisible="False"/>
-                <Entry x:Name="TxTNomPicto" Placeholder="Nombre del Pictograma"/>
-                <Entry x:Name="TxTPictoTexto" Placeholder="Texto del pictograma (lo que dice)"/>
-                <Entry x:Name="TxTCodCatP" Placeholder="Codigo de la categoria a la que pertenece el pictograma"/>
-                <Button x:Name="BtnRegistrarPicto" Text="Registrar" Clicked="BtnRegistrarPicto_Clicked"/>
-                <Button x:Name="BtnActualizarPicto" Text="Actualizar" Clicked="BtnActualizarPicto_Clicked" IsVisible="False"/>
-                <Button x:Name="BtnEliminarPicto" Text="Eliminar" Clicked="BtnEliminarPicto_Clicked" IsVisible="False"/>
-                <!--Hasta aca va la ABM de pictogramas-->
-
-                <!--De aca-->
-                <ListView x:Name="LstPicto" ItemSelected="LstPicto_ItemSelected">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <ViewCell>
-                                <Grid>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="auto"/>
-                                        <RowDefinition Height="auto"/>
-                                    </Grid.RowDefinitions>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="*"/>
-                                    </Grid.ColumnDefinitions>
-                                    <Label Text="{Binding CodPicto}" Grid.Row="0" Grid.Column="0" TextColor="DarkBlue"/>
-                                    <Label Text="{Binding NomPicto}" Grid.Row="0" Grid.Column="1" TextColor="Black"/>
-                                    <Label Text="{Binding TextoPicto}" Grid.Row="0" Grid.Column="2" TextColor="Black"/>
-                                    <Label Text="{Binding CodCat}" Grid.Row="0" Grid.Column="3" TextColor="DarkBlue"/>
-                                </Grid>
-                            </ViewCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-                <!--Hasta aca va el listado de las imagenes-->
+               
                 
                 <Grid Margin="30,20"
               RowSpacing="20">
-                    <Button 
+                    <ImageButton 
+                        Source="{Binding Picto}" 
                 Grid.Row="0"
                 Grid.Column="0"
             CornerRadius="15"
             BackgroundColor="#ffad99"
-            Text="acciones" 
             WidthRequest="200" 
             HeightRequest="200"
             HorizontalOptions="Start"
                         Clicked="NavigateButton_OnClicked">
-                    </Button>
+                    </ImageButton>
                     <Button 
                 Grid.Row="0"
                 Grid.Column="1"

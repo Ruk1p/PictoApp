@@ -1,12 +1,14 @@
 ﻿using Pictograpp.Models;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
+using Xamarin.Forms.PlatformConfiguration;
 using Xamarin.Forms.Xaml;
 
 namespace Pictograpp
@@ -27,7 +29,7 @@ namespace Pictograpp
         }
 
         #region Categorias
-    private void LimpiarCat()
+        private void LimpiarCat()
         {
             TxtCodCat.Text = "";
             TxTNomCat.Text = "";
@@ -121,7 +123,7 @@ namespace Pictograpp
         private async void BtnEliminarCat_Clicked(object sender, EventArgs e)
         {
             var cate = await App.SQLiteDB.GetCatByCodAsync(Convert.ToInt32(TxtCodCat.Text));
-            if(cate != null)
+            if (cate != null)
             {
                 if (CanDelete(cate))
                 {
@@ -134,7 +136,7 @@ namespace Pictograpp
                     LimpiarCat();
                     MostrarDatosCat();
                 }
-                
+
             }
         }
         private bool CanDelete(MCategorias cate)
@@ -191,6 +193,7 @@ namespace Pictograpp
             var obj = (MPictogramas)e.SelectedItem;
             BtnRegistrarPicto.IsVisible = false;
             TxTNomPicto.IsVisible = true;
+            BtnElegirPicto.IsVisible = true;
             BtnActualizarPicto.IsVisible = true;
             BtnEliminarPicto.IsVisible = true;
             if (!string.IsNullOrEmpty(obj.CodPicto.ToString()))
@@ -208,13 +211,15 @@ namespace Pictograpp
 
         private async void BtnRegistrarPicto_Clicked(object sender, EventArgs e)
         {
+            await PickerPhotoAsync();
             if (ValidarDatosPicto())
             {
                 MPictogramas pic = new MPictogramas
                 {
                     NomPicto = TxTNomPicto.Text,
                     TextoPicto = TxTPictoTexto.Text,
-                    CodCat = int.Parse(TxTCodCatP.Text)
+                    CodCat = int.Parse(TxTCodCatP.Text),
+                    Picto = PhotoPath
                 };
                 await App.SQLiteDB.SavePictoAsync(pic);
                 await DisplayAlert("Registro", "Se guardo de manera exitosa el pictograma", "Ok");
@@ -274,16 +279,148 @@ namespace Pictograpp
         }
         #endregion
 
+        public interface IAccessFile
+        {
+            void CreateFile(string FileName);
+        }
+
         private async void BtnPickImage_Clicked(object sender, EventArgs e)
         {
-            var ima = await MediaPicker.PickPhotoAsync(new MediaPickerOptions
+            await PickerPhotoAsync();
+            /*var ima = await MediaPicker.PickPhotoAsync(new MediaPickerOptions
             {
                 Title="Elegi un pictograma o imagen"
             });
             var stream = await ima.OpenReadAsync();
 
-            ResultImage.Source = ImageSource.FromStream(() => stream);
+            //byte[] ImageByte = new byte[r.Length];
+            // r.InputStream.Read(ImageByte, 0, ImageByte.Length);
+
+            //string ImageBase64 = Convert.ToBase64String(ImageByte); 
+
+            // byte[] newImageByte = Convert.FromBase64String(ImageBase64);
+            //  ResultImage.Source = ImageSource.FromStream(() => new MemoryStream(bytes)); 
+            */
+        }
+
+        string PhotoPath;
+        string imageBase64;
+        async Task<string> PickerPhotoAsync()
+        {
+            try
+            {
+                var photo = await MediaPicker.PickPhotoAsync();
+                await LoadPhotoAsync(photo);
+                Console.WriteLine($"CapturePhotoAsync COMPLETED: {PhotoPath}");
+            }
+            catch (FeatureNotSupportedException fnsEx)
+            {
+                // Feature is not supported on the device
+            }
+            catch (PermissionException pEx)
+            {
+                // Permissions not granted
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"CapturePhotoAsync THREW: {ex.Message}");
+            }
+            return PhotoPath;
+        }
+
+        async Task LoadPhotoAsync(FileResult photo)
+        {
+            if (photo == null)
+            {
+                PhotoPath = null;
+                return;
+            }
+
+            //gaurdar archivo
+            //var newFile = Path.Combine(FileSystem.CacheDirectory, photo.FileName);
+            Stream stream = await photo.OpenReadAsync();
+            /* using (var newStream = File.OpenWrite(newFile))
+             {
+                 await stream.CopyToAsync(newStream);
+             }*/
+
+            //PhotoPath = newFile;
+
+            var result = GetImageStreamAsBytes(stream);
+            imageBase64 = Convert.ToBase64String(result);
+            PhotoPath = imageBase64;
+            //PhotoPath = result;
+            //string imageBase64 = Convert.ToBase64String(result);
+           // PhotoPath = imageBase64;
 
         }
+        /*
+        public byte[] GetImagesBytes(Stream stream)
+        {
+            MemoryStream ms = new MemoryStream();
+            stream.CopyTo(ms);
+            byte[] bytes = ms.ToArray();
+            return bytes;
+        }
+        */
+        public byte[] GetImageStreamAsBytes(Stream input)
+        {
+            var buffer = new byte[16 * 1024];
+            using (MemoryStream ms = new MemoryStream())
+            {
+                int read;
+                while ((read = input.Read(buffer, 0, buffer.Length)) > 0)
+                {
+                    ms.Write(buffer, 0, read);
+                }
+                return ms.ToArray();
+            }
+        }
+
+        private void BtnBackupBaseDeDatos_Clicked(object sender, EventArgs e)
+        {
+                string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "PictoApp.db3");
+                //var bytes = File.ReadAllBytes(path);
+                //var fileCopyName = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "PictoAppBackup.db";
+                File.Copy(path, "PictoAppBackup.db", true);
+                //File.Create(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData).ToString() + "PictoAppBackup.db");
+
+        }
+
+        private void BtnElegirPicto_Clicked(object sender, EventArgs e)
+        {
+            byte[] bytes = System.Convert.FromBase64String(imageBase64);
+            ResultPicto.Source = ImageSource.FromStream(() => new MemoryStream(bytes));
+        }
+
+        /*public byte[] ImageToByteArray(System.Drawing.Image imageIn)
+        {
+            byte[] result = null;
+            using (MemoryStream ms = new MemoryStream())
+            {
+                imageIn.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+                result = ms.ToArray();
+            }
+            return result;
+        }
+        */
+        /*
+        public static void SaveByteArrayToFileWithFileStream(byte[] data, string filePath)
+        {
+            using var stream = File.Create(filePath);
+            stream.Write(data, 0, data.Length);
+        }
+        */
+        /*private byte[] GetImageBytes(Stream stream)
+        {
+            byte[] ImageBytes;
+            using (var memoryStream = new System.IO.MemoryStream())
+            {
+                stream.CopyTo(memoryStream);
+                ImageBytes = memoryStream.ToArray();
+            }
+            return ImageBytes;
+        }
+        */
     }
 }
