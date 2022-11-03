@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "5j95YoZTDpuExt18sU/Cwa77EYOiyWadiNEI1YhJnnvIesQwldXJpfdpI45uS0xUt9hDY69lJYi7RNnqwXic2A==",
+  "dgSpecHash": "HFJB3QkDaj9zWuEQLTj66AljXoSKq7Yir1CHxG7Oz9UiqFvwn1+K6YBUn8FxLwX6USfV8u2As3hOJ7pNJmXJhQ==",
   "success": true,
-  "projectFilePath": "D:\\Documentos\\A-Proyecto\\PictoApp\\Code\\Pictograpp\\Pictograpp\\Pictograpp.csproj",
+  "projectFilePath": "D:\\Documentos\\Github\\PictoApp\\Code\\Pictograpp\\Pictograpp\\Pictograpp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\mrcra\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\mrcra\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",

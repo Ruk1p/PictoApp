@@ -3666,11 +3666,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Documentos\\A-Proyecto\\PictoApp\\Code\\Pictograpp\\Pictograpp.Android\\Pictograpp.Android.csproj",
+      "projectUniqueName": "D:\\Documentos\\Github\\PictoApp\\Code\\Pictograpp\\Pictograpp.Android\\Pictograpp.Android.csproj",
       "projectName": "Pictograpp.Android",
-      "projectPath": "D:\\Documentos\\A-Proyecto\\PictoApp\\Code\\Pictograpp\\Pictograpp.Android\\Pictograpp.Android.csproj",
+      "projectPath": "D:\\Documentos\\Github\\PictoApp\\Code\\Pictograpp\\Pictograpp.Android\\Pictograpp.Android.csproj",
       "packagesPath": "C:\\Users\\mrcra\\.nuget\\packages\\",
-      "outputPath": "D:\\Documentos\\A-Proyecto\\PictoApp\\Code\\Pictograpp\\Pictograpp.Android\\obj\\",
+      "outputPath": "D:\\Documentos\\Github\\PictoApp\\Code\\Pictograpp\\Pictograpp.Android\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
@@ -3691,8 +3691,8 @@
       "frameworks": {
         "monoandroid11.0": {
           "projectReferences": {
-            "D:\\Documentos\\A-Proyecto\\PictoApp\\Code\\Pictograpp\\Pictograpp\\Pictograpp.csproj": {
-              "projectPath": "D:\\Documentos\\A-Proyecto\\PictoApp\\Code\\Pictograpp\\Pictograpp\\Pictograpp.csproj"
+            "D:\\Documentos\\Github\\PictoApp\\Code\\Pictograpp\\Pictograpp\\Pictograpp.csproj": {
+              "projectPath": "D:\\Documentos\\Github\\PictoApp\\Code\\Pictograpp\\Pictograpp\\Pictograpp.csproj"
             }
           }
         }
