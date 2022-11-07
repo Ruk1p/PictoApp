@@ -1,0 +1,17 @@
+D:\Documentos\A-Proyecto\PictoApp\Code\Pictograpp\Pictograpp\bin\Release\netstandard2.1\Pictograpp.deps.json
+D:\Documentos\A-Proyecto\PictoApp\Code\Pictograpp\Pictograpp\bin\Release\netstandard2.1\Pictograpp.dll
+D:\Documentos\A-Proyecto\PictoApp\Code\Pictograpp\Pictograpp\bin\Release\netstandard2.1\Pictograpp.pdb
+D:\Documentos\A-Proyecto\PictoApp\Code\Pictograpp\Pictograpp\obj\Release\netstandard2.1\Pictograpp.csproj.AssemblyReference.cache
+D:\Documentos\A-Proyecto\PictoApp\Code\Pictograpp\Pictograpp\obj\Release\netstandard2.1\Pictograpp.GeneratedMSBuildEditorConfig.editorconfig
+D:\Documentos\A-Proyecto\PictoApp\Code\Pictograpp\Pictograpp\obj\Release\netstandard2.1\App.xaml.g.cs
+D:\Documentos\A-Proyecto\PictoApp\Code\Pictograpp\Pictograpp\obj\Release\netstandard2.1\Categories.xaml.g.cs
+D:\Documentos\A-Proyecto\PictoApp\Code\Pictograpp\Pictograpp\obj\Release\netstandard2.1\Images.xaml.g.cs
+D:\Documentos\A-Proyecto\PictoApp\Code\Pictograpp\Pictograpp\obj\Release\netstandard2.1\MainPage.xaml.g.cs
+D:\Documentos\A-Proyecto\PictoApp\Code\Pictograpp\Pictograpp\obj\Release\netstandard2.1\Pictograpp.AssemblyInfoInputs.cache
+D:\Documentos\A-Proyecto\PictoApp\Code\Pictograpp\Pictograpp\obj\Release\netstandard2.1\Pictograpp.AssemblyInfo.cs
+D:\Documentos\A-Proyecto\PictoApp\Code\Pictograpp\Pictograpp\obj\Release\netstandard2.1\Pictograpp.csproj.CoreCompileInputs.cache
+D:\Documentos\A-Proyecto\PictoApp\Code\Pictograpp\Pictograpp\obj\Release\netstandard2.1\XamlC.stamp
+D:\Documentos\A-Proyecto\PictoApp\Code\Pictograpp\Pictograpp\obj\Release\netstandard2.1\Pictograpp.dll
+D:\Documentos\A-Proyecto\PictoApp\Code\Pictograpp\Pictograpp\obj\Release\netstandard2.1\refint\Pictograpp.dll
+D:\Documentos\A-Proyecto\PictoApp\Code\Pictograpp\Pictograpp\obj\Release\netstandard2.1\Pictograpp.pdb
+D:\Documentos\A-Proyecto\PictoApp\Code\Pictograpp\Pictograpp\obj\Release\netstandard2.1\ref\Pictograpp.dll
