@@ -1,8 +1,12 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "1O/pPDzC3JqinusbCJ7y2Mjp7mY3GNaJAIi8JpIDU4vMADbFMsf65e7ErpOXE4dabs4MFzPA0aOkqk9r56Oe1Q==",
+=======
+  "dgSpecHash": "lxrGlk8WjlwlA2AGluBlgSOwqiRKDFt9vR8J1pkVUPKQ6Ebmj9jvMAZvncmkIlsrJGqDfF83QF+7J3pH0aJWAg==",
+>>>>>>> 1c60d197c50c8edcbb69e01e2d442eec24719089
   "success": true,
-  "projectFilePath": "D:\\Documentos\\A-Proyecto\\PictoApp\\Code\\Pictograpp\\Pictograpp\\Pictograpp.csproj",
+  "projectFilePath": "D:\\Documentos\\Github\\PictoApp\\Code\\Pictograpp\\Pictograpp\\Pictograpp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\mrcra\\.nuget\\packages\\sqlite-net-pcl\\1.8.116\\sqlite-net-pcl.1.8.116.nupkg.sha512",
     "C:\\Users\\mrcra\\.nuget\\packages\\sqlitepclraw.bundle_green\\2.0.4\\sqlitepclraw.bundle_green.2.0.4.nupkg.sha512",
